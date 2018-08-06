@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 
+
 class AlphaVantage:
     
     def __init__(self, api_key):
@@ -26,5 +27,5 @@ class AlphaVantage:
 
     def get_data(self, function, symbol, output_size='compact', data_type='json'):
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(self._get_data('TIME_SERIES_DAILY', 'MSFT', output_size, data_type))
+        loop.run_until_complete(self._get_data(function, symbol, output_size, data_type))
         loop.close()
