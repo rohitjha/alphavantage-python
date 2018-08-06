@@ -19,10 +19,7 @@ class AlphaVantage:
         }
         async with aiohttp.ClientSession() as session:
             async with session.get(self.base_url, params=params) as response:
-                print(response.status)
-                data = await response.text()
-                print(data)
-                return data
+                return await response.text()
 
 
     def get_data(self, function, symbol, output_size='compact', data_type='json'):
