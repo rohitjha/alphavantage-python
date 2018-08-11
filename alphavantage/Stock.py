@@ -1,4 +1,5 @@
 import aiohttp
+from typing import List
 
 
 class Stock():
@@ -7,7 +8,7 @@ class Stock():
         self.api_key = api_key
         self.base_url = 'https://www.alphavantage.co/query'
 
-    async def _get_data_response(self, function: str, symbol: str, symbols: list, interval: str, output_size: str, data_type: str) -> str:
+    async def _get_data_response(self, function: str, symbol: str, symbols: List[str], interval: str, output_size: str, data_type: str) -> str:
         self._validate_params(function, data_type)
 
         params = {
