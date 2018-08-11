@@ -5,7 +5,7 @@ from typing import List, Dict
 class Stock():
 
     def __init__(self, api_key: str):
-        self.api_key = api_key
+        self._api_key = api_key
         self.base_url = 'https://www.alphavantage.co/query'
 
     async def _get_data_response(
@@ -31,7 +31,7 @@ class Stock():
         params = {
             'function': function,
             'datatype': data_type,
-            'apikey': self.api_key
+            'apikey': self._api_key
         }
 
         if interval is not None and len(interval) > 0:
