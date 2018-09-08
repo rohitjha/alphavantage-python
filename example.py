@@ -1,11 +1,12 @@
 import asyncio
 import alphavantage
 
+API_KEY = ''
 
-client = alphavantage.Stock('AC08TL1JSK9Q6YUH')
+forex_client = alphavantage.Forex(API_KEY)
 
 loop = asyncio.get_event_loop()
-data = loop.run_until_complete(client.batch_quotes(['GDDY', 'MSFT']))
+xchg_rate_data = loop.run_until_complete(forex_client.intraday('USD', 'INR'))
 loop.close()
 
-print(data)
+print(xchg_rate_data)

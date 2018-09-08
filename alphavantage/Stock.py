@@ -18,7 +18,7 @@ class Stock():
             async with session.get(self.base_url, params=params) as response:
                 return await response.text()
 
-    def _validate_params(self, function, data_type):
+    def _validate_params(self, function: str, data_type: str):
         if function is None or len(function) == 0:
             raise Exception('Invalid parameter `function`.')
         if data_type not in['json', 'csv'] and data_type is not None:
